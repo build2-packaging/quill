@@ -37,7 +37,15 @@ lib{quill}
 This package provides the following configuration variables:
 
 ```
-[bool] config.libquill.<VARIABLE> ?= false
+[bool] config.libquill.no_exceptions ?= false
+[bool] config.libquill.no_thread_name_support ?= false
+[bool] config.libquill.x86arch ?= false
+[bool] config.libquill.disable_non_prefixed_macros ?= false
 ```
 
-<DESCRIPTION-OF-CONFIG-VARIABLES>
+### Configuration variables description
+
+* `no_exceptions` - Whether to build without exception handling support.
+* `no_thread_name_support` - Whether to disable features that require thread name retrieval, ensuring compatibility with older Windows versions (e.g., Windows Server 2012/2016) and Android.
+* `x86arch` - Whether to enable x86-specific optimizations for cache coherence using _mm_prefetch, _mm_clflush, and _mm_clflushopt instructions.
+* `disable_non_prefixed_macros` - Whether to disable non-prefixed `LOG_*` macros, keeping only the `QUILL_LOG_*` macros to avoid conflicts with other logging libraries.

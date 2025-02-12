@@ -14,6 +14,20 @@ lib{quill}:
   cxx.export.libs = $intf_libs
 }
 
+if $config.libquill.no_exceptions
+  lib{quill}: cxx.export.poptions += -DQUILL_NO_EXCEPTIONS
+
+if $config.libquill.no_thread_name_support
+  lib{quill}: cxx.export.poptions += -DQUILL_NO_THREAD_NAME_SUPPORT
+
+# Is -march implicit with build2?
+#
+if $config.libquill.x86arch
+  lib{quill}: cxx.export.poptions += -DQUILL_X86ARCH
+
+if $config.libquill.disable_non_prefixed_macros
+  lib{quill}: cxx.export.poptions += -DQUILL_DISABLE_NON_PREFIXED_MACROS
+
 if ($cxx.target.class != 'windows')
 {
   cxx.libs += -pthread
