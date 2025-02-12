@@ -7,6 +7,9 @@ ixx{*}: extension = ipp
 txx{*}: extension = tpp
 cxx{*}: extension = cpp
 
+if ($cxx.target.system == 'win32-msvc')
+  cxx.poptions += -D_CRT_SECURE_NO_WARNINGS
+
 # Every exe{} in this subproject is by default a test.
 #
 exe{*}: test = true
