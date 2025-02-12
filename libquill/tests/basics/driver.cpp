@@ -1,34 +1,27 @@
 #include <sstream>
 #include <stdexcept>
+#include <string_view>
 
 #include <quill/Backend.h>
+#include <quill/Frontend.h>
+#include <quill/LogMacros.h>
+#include <quill/Logger.h>
+#include <quill/sinks/ConsoleSink.h>
 
 #undef NDEBUG
 #include <cassert>
 
-int main ()
+int
+main ()
 {
   using namespace std;
   using namespace quill;
 
-  // Basics.
-  //
-  {
-    // ostringstream o;
-    // say_hello (o, "World");
-    // assert (o.str () == "Hello, World!\n");
-  }
+  Backend::start ();
 
-  // Empty name.
-  //
-  try
-  {
-    // ostringstream o;
-    // say_hello (o, "");
-    // assert (false);
-  }
-  catch (const invalid_argument& e)
-  {
-    // assert (e.what () == string ("empty name"));
-  }
+  Logger* logger = Frontend::create_or_get_logger (
+    "root",
+    Frontend::create_or_get_sink<ConsoleSink> ("sink_id_1"));
+
+  LOG_INFO (logger, "Hello from {}!", std::string_view{"Quill"});
 }
