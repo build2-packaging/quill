@@ -20,18 +20,18 @@ if $config.libquill.no_exceptions
 if $config.libquill.no_thread_name_support
   lib{quill}: cxx.export.poptions += -DQUILL_NO_THREAD_NAME_SUPPORT
 
-# Is -march implicit with build2?
-#
 if $config.libquill.x86arch
   lib{quill}: cxx.export.poptions += -DQUILL_X86ARCH
 
 if $config.libquill.disable_non_prefixed_macros
   lib{quill}: cxx.export.poptions += -DQUILL_DISABLE_NON_PREFIXED_MACROS
 
+if $config.libquill.disable_function_name
+  lib{quill}: cxx.export.poptions += -DQUILL_DISABLE_FUNCTION_NAME
+
 if ($cxx.target.class != 'windows')
 {
   cxx.libs += -pthread
-
   lib{quill}: cxx.export.libs += -pthread
 }
 
