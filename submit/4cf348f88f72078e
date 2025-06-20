@@ -1,0 +1,8 @@
+: 1
+name: libquill
+version: 10.0.0
+type: lib,binless
+language: c++
+project: quill
+summary: Asynchronous low latency C++ logging library
+license: MIT
