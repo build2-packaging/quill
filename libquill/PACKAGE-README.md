@@ -9,7 +9,7 @@ C++ library. It provides high-performance asynchronous logging.
 To start using `libquill` in your project, add the following [`depends`](https://build2.org/bpkg/doc/build2-package-manager-manual.xhtml#manifest-package-depends) value to your [`manifest`](https://build2.org/bpkg/doc/build2-package-manager-manual.xhtml#manifests), adjusting the version constraint as appropriate:
 
 ```
-depends: libquill ^10.0.0
+depends: libquill ^10.1.0
 ```
 
 Then import the library in your `buildfile`:

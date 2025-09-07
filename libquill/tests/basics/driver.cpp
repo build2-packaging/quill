@@ -24,7 +24,7 @@ main ()
       std::move (sink),
       quill::PatternFormatterOptions {
         "%(time) [%(process_id)] [%(thread_id)] %(logger) - %(message)",
-        "%D %H:%M:%S.%Qms %z",
+        "%Y-%m-%d %H:%M:%S.%Qms",
         quill::Timezone::GmtTime,
         false},
       quill::ClockSourceType::System));
