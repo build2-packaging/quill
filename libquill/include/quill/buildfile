@@ -43,7 +43,7 @@ if $config.libquill.enable_assertions
 
 if ($cxx.target.class == 'windows')
 {
-  if ($cxx.id == 'gcc')
+  if ($cxx.target.system == 'mingw32')
     lib{quill}: cxx.export.libs += -lucrtbase
 }
 else
