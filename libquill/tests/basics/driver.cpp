@@ -9,6 +9,8 @@
 #undef NDEBUG
 #include <cassert>
 
+static_assert (quill::Version == 120000);
+
 int
 main ()
 {
