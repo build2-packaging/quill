@@ -23,9 +23,6 @@ if $config.libquill.no_thread_name_support
 if $config.libquill.use_sequential_thread_id
   lib{quill}: cxx.export.poptions += -DQUILL_USE_SEQUENTIAL_THREAD_ID
 
-if $config.libquill.x86arch
-  lib{quill}: cxx.export.poptions += -DQUILL_X86ARCH
-
 if $config.libquill.disable_non_prefixed_macros
   lib{quill}: cxx.export.poptions += -DQUILL_DISABLE_NON_PREFIXED_MACROS
 
